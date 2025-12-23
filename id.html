@@ -1,0 +1,162 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3D Login Signup</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#141e30,#243b55);
+    perspective:1200px;
+}
+
+.container{
+    width:360px;
+    height:440px;
+    position:relative;
+
+
+}
+
+
+
+input[type="checkbox"]{
+    display:none;
+}
+
+.card{
+    width:100%;
+    height:100%;
+    position:absolute;
+    transform-style:preserve-3d;
+    transition:transform 0.9s ease;
+}
+
+/* Flip animation */
+#flip:checked ~ .card{
+    transform:rotateY(180deg);
+}
+
+.side{
+    width:100%;
+    height:100%;
+    position:absolute;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(15px);
+    border-radius:18px;
+    padding:35px;
+    box-shadow:0 30px 60px rgba(0,0,0,0.6);
+    backface-visibility:hidden;
+}
+
+/* Headings */
+.side h2{
+    text-align:center;
+    color:#fff;
+    margin-bottom:25px;
+}
+
+/* Inputs */
+.side input{
+    width:100%;
+    padding:13px;
+    margin:12px 0;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+/* Button */
+.side button{
+    width:100%;
+    padding:13px;
+    margin-top:18px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#00f2fe,#4facfe);
+    color:#000;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.side button:hover{
+    background:linear-gradient(135deg,#f7971e,#ffd200);
+}
+
+/* Switch text */
+.switch{
+    margin-top:18px;
+    text-align:center;
+    color:#fff;
+}
+
+.switch label{
+    color:#00f2fe;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* Signup back side */
+.signup{
+    transform:rotateY(180deg);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <input type="checkbox" id="flip">
+
+    <div class="card">
+
+        <!-- Login -->
+        <div class="side login">
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button>Submit</button>
+
+            <div class="switch">
+                New user?
+                <label for="flip">Create account</label>
+            </div>
+        </div>
+
+        <!-- Signup -->
+        <div class="side signup">
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+            <button>Register</button>
+
+            <div class="switch">
+                Already have account?
+                <label for="flip">Login</label>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+
+    
